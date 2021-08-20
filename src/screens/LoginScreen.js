@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Joi from 'joi';
 import Form from '../components/Form';
+import { login } from '../store/actions/login';
+import { useHistory } from 'react-router-dom';
+import { PAGES } from '../config/routes';
+import { TYPES } from '../config/';
 
 const inputComponents = [
     {
@@ -22,10 +27,10 @@ const loginSchema = Joi.object({
 
 function LoginScreen() {
     const [formError, setFormError] = useState('');
-    // const dispatch = useDispatch();
-    // const history = useHistory();
+    const dispatch = useDispatch();
+    const history = useHistory();
 
-    // const { Type } = useSelector((state) => state.user);
+    const { Type } = useSelector((state) => state.user);
 
     // useEffect(() => {
     //     if (Type === TYPES.SUPERADMIN || Type === TYPES.USER) {
@@ -48,7 +53,7 @@ function LoginScreen() {
                             if (validateValue.error) {
                                 setFormError(validateValue.error.message);
                             } else {
-                                // dispatch(login(data, isLoading, setFormError));
+                                dispatch(login(data, isLoading, setFormError));
                             }
                         }}
                         errorMsg={formError}

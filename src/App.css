@@ -1,38 +1,131 @@
-.App {
-  text-align: center;
+.left-top-header {
+    background: #0267ff;
+    padding: 15px 20px;
+    color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.left-nav li {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-left: 2px solid #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.left-nav li:hover {
+    background: #eef8fa;
+    border-left: 2px solid #4d91ff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.left-nav li.active {
+    background: #eef8fa;
+    border-left: 2px solid #4d91ff;
 }
 
-.App-link {
-  color: #61dafb;
+.left-nav a {
+    color: black;
+    text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.right-top-header {
+    background: #ffffff;
+    padding: 15px 20px;
+    box-shadow: 0px 0px 20px #ecebf0;
+}
+
+.right-content-div {
+    padding: 20px 20px 0px 20px;
+    width: calc(100vw - 260px);
+}
+
+@media only screen and (max-width: 963px) {
+    .right-content-div {
+        width: 100%;
+    }
+}
+.mobile-drawer {
+    position: fixed;
+    z-index: 2;
+    height: 100vh;
+    background-color: white;
+    transform: translateX(0);
+}
+.menu-btn {
+}
+
+/* Modal CSS */
+.modal-cover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: white;
+    padding: 20px;
+}
+
+.modal-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-close {
+    cursor: pointer;
+}
+
+/* loading css */
+.loadingDiv {
+    position: absolute;
+    top: 55px;
+    margin-left: 18px;
+    margin-top: 20px;
+    width: 100%;
+    background-color: #fff;
+}
+
+.product-thumbnail {
+    max-width: 70px;
+    max-height: 70px;
+    border-radius: 5px;
+    border: 1px solid rgb(209, 209, 209);
+}
+
+/* Drag and Drop css */
+.container {
+    background-color: #555;
+    /* padding: 10px; */
+}
+.wrapper {
+    /* margin: 8px; */
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+}
+.dropable-area {
+    /* padding: 8px; */
+    transition: background-color 0.2s ease;
+}
+.list-item-container {
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    padding: 8px;
+    margin-bottom: 8px;
+    display: flex;
+}
+
+.item-container {
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    background-color: #f2f2f2;
+    align-items: center;
+}
+
+.item-selected {
+    background-color: #fff;
+}
+.item-label {
+    flex: 1;
+    margin-left: 5px;
+}
+.item-menu-btn {
+    margin-right: 10px;
 }

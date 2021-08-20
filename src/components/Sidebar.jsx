@@ -12,7 +12,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 
-const SidebarItem = ({ item, location }) => {
+const SidebarItem = ({ item, location, sub }) => {
     const dispatch = useDispatch();
     switch (item.route) {
         case Screens.LOGOUT:
@@ -29,6 +29,7 @@ const SidebarItem = ({ item, location }) => {
             return (
                 <Link to={item.route}>
                     <li
+                        style={{ marginLeft: sub === true ? '10px' : '' }}
                         className={
                             location.pathname === item.route ? 'active' : ''
                         }
@@ -71,7 +72,12 @@ const SidebarItemWithShutter = ({ item }) => {
             </li>
             {open &&
                 item.subRoutes.map((e, i) => (
-                    <SidebarItem item={e} location={location} key={i} />
+                    <SidebarItem
+                        item={e}
+                        location={location}
+                        key={i}
+                        sub={true}
+                    />
                 ))}
         </>
     );

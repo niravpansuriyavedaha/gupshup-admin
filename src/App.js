@@ -18,35 +18,35 @@ function App() {
     const { Type, token } = useSelector((state) => state.user);
     let settings = useSelector((state) => state).settings;
     const dispatch = useDispatch();
-    axios.interceptors.request.use(
-        function (config) {
-            if (
-                !['/user/login'].includes(config.url) &&
-                !config.headers.common.Authorization
-            ) {
-                config.headers.common.Authorization = `Bearer ${token}`;
-                axios.defaults.headers.common[
-                    'Authorization'
-                ] = `Bearer ${token}`;
-            }
-            return config;
-        },
-        function (error) {
-            console.log('interceptors request error', error);
-            return Promise.reject(error);
-        },
-    );
-    axios.interceptors.response.use(
-        function (response) {
-            return response;
-        },
-        function (error) {
-            if (error.response.status === 401) {
-                dispatch(logout());
-            }
-            return Promise.reject(error);
-        },
-    );
+    // axios.interceptors.request.use(
+    //     function (config) {
+    //         if (
+    //             !['/user/login'].includes(config.url) &&
+    //             !config.headers.common.Authorization
+    //         ) {
+    //             config.headers.common.Authorization = `Bearer ${token}`;
+    //             axios.defaults.headers.common[
+    //                 'Authorization'
+    //             ] = `Bearer ${token}`;
+    //         }
+    //         return config;
+    //     },
+    //     function (error) {
+    //         console.log('interceptors request error', error);
+    //         return Promise.reject(error);
+    //     },
+    // );
+    // axios.interceptors.response.use(
+    //     function (response) {
+    //         return response;
+    //     },
+    //     function (error) {
+    //         if (error.response.status === 401) {
+    //             dispatch(logout());
+    //         }
+    //         return Promise.reject(error);
+    //     },
+    // );
 
     // useEffect(() => {
     //     axios.patch('/user/settings', settings);

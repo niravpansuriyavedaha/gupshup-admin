@@ -6,7 +6,6 @@ export const SHOP_NAME = 'frostoflondontest';
 
 export const TYPES = {
     SUPERADMIN: 'superadmin',
-    USER: 'user',
     GUEST: 'guest',
 };
 

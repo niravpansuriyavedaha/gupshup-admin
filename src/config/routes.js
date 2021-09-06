@@ -14,13 +14,7 @@ export const PAGES = {
 };
 
 export const Screens = {
-    USERS: `${PAGES.DASHBOARD}/users`,
-    PROPERTIES: `${PAGES.DASHBOARD}/properties`,
-    GROUPS: `${PAGES.DASHBOARD}/groups`,
     PRODUCTS: `${PAGES.DASHBOARD}/products`,
-    ACCOUNTS: `${PAGES.DASHBOARD}/account`,
-    EDIT_PRODUCT: `${PAGES.DASHBOARD}/edit-product`,
-    LOGOUT: `${PAGES.DASHBOARD}/logout`,
 };
 
 export const Sidebar = {
@@ -29,34 +23,21 @@ export const Sidebar = {
         // { label: 'Properties', route: Screens.PROPERTIES },
         // { label: 'Groups', route: Screens.GROUPS },
         { label: 'Products', route: Screens.PRODUCTS },
-        { label: 'Account', route: Screens.ACCOUNTS },
+        { label: 'Account', route: Screens.PRODUCTS },
         {
             label: 'Settings',
             subRoutes: [
-                { label: 'User', route: Screens.USERS },
-                { label: 'Properties', route: Screens.PROPERTIES },
+                { label: 'User', route: Screens.PRODUCTS },
+                { label: 'Properties', route: Screens.PRODUCTS },
                 // { label: 'Groups', route: Screens.GROUPS },
             ],
         },
-        { label: 'Logout', route: Screens.LOGOUT },
+        { label: 'Logout', route: Screens.PRODUCTS },
     ],
-    [TYPES.USER]: [
-        { label: 'Properties', route: Screens.PROPERTIES },
-        { label: 'Groups', route: Screens.GROUPS },
-        { label: 'Products', route: Screens.PRODUCTS },
-        { label: 'Logout', route: Screens.LOGOUT },
-    ],
-    [TYPES.GUEST]: [],
 };
 
 export const Routes = {
     [TYPES.SUPERADMIN]: [
-        {
-            path: PAGES.DASHBOARD,
-            component: DashboardLayout,
-        },
-    ],
-    [TYPES.USER]: [
         {
             path: PAGES.DASHBOARD,
             component: DashboardLayout,
@@ -73,31 +54,8 @@ export const Routes = {
 export const AuthRoutes = {
     [TYPES.SUPERADMIN]: [
         {
-            path: Screens.USERS,
-            component: UserScreen,
-        },
-        {
-            path: Screens.PROPERTIES,
-            component: PropertyScreen,
-        },
-        {
             path: Screens.PRODUCTS,
             component: ProductScreen,
         },
-        {
-            path: Screens.EDIT_PRODUCT,
-            component: EditProductScreen,
-        },
-        {
-            path: Screens.ACCOUNTS,
-            component: AccountScreen,
-        },
     ],
-    [TYPES.USER]: [
-        {
-            path: Screens.PROPERTIES,
-            component: PropertyScreen,
-        },
-    ],
-    [TYPES.GUEST]: [],
 };

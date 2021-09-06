@@ -91,11 +91,11 @@ function DashboardLayout() {
                         handleMenuIconClick={handleMenuIconClick}
                         mobileIconVisible={mobileIconVisible}
                     />
-                    {/* <Switch>
-                        {createRoutes()} */}
-                    {/* Default */}
-                    {/* <Redirect to={Screens.PRODUCTS} />
-                    </Switch> */}
+                    <Switch>
+                        {createRoutes()}
+                        {/* Default */}
+                        <Redirect to={Screens.PRODUCTS} />
+                    </Switch>
 
                     <div className="loadingDiv">
                         {loading && <LoadingScreen />}
